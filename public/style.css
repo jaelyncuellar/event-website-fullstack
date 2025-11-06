@@ -1,0 +1,342 @@
+/*** VSCodeEDU preview fix 
+  Purpose:
+  - Fix VSCodeEDU issue that causes a white border to show around
+    the preview window
+  When To Modify:
+  - If you change the background color of your webpage, you may need to update this rule too.
+***/
+
+/* 
+colors using - 
+main blue: rgb(0, 0, 191); 
+bright blue: blue; 
+*/
+html {
+    background-color: var(--bg-color);
+    scroll-padding-top: 100px;
+}
+
+/*** body ***
+- adds style rules for the body of page
+- useful if want a rule to apply to EVERYTHING on pg
+    - can always override later in stylesheet
+***/
+body {
+    background-color: black; /* see bottom of file for color variables */
+    font-size: 16px; /* medium */ 
+    color: white;
+    font-family: "Times New Roman", monospace; 
+    margin: 50px; 
+}
+
+/*** Text ***/
+h1 {
+    color: rgb(0, 0, 191);
+    background: linear-gradient(to right, black 0%, white 10%, white 90%, black 100%);
+    font-family: 'monospace';
+    text-align: center; 
+    font-size: 200%;
+}
+h2 {
+    font-size: 150%;
+    width: 50%;
+    font-style: italic;
+    text-align: center; 
+    color: white; 
+    margin: auto; 
+    border: 2px solid white;   /* thickness, style, color */
+    padding: 10px;             /* space between text and border */
+  }
+h3 {
+  background: linear-gradient(to right, black 0%, white 10%, white 90%, black 100%);
+  color: blue;
+    font-size: 24px;
+    text-align: center;
+}
+.center-img { 
+  display: block; 
+  margin: 0 auto;
+}
+section { 
+  margin-bottom: 100px; 
+}
+h4 {
+  padding-top: 50px; 
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+/* li { 
+  list-style-type: square;
+} */
+p {
+    text-align: center; 
+    color: white;
+}
+a:link{ 
+    color: black; 
+}
+a:visited{ 
+    color: rgb(0, 0, 191);
+}
+a:hover{ 
+    color: blue; 
+}
+a:active{ 
+    color: white;
+    text-decoration: underline dotted red 2px; 
+}
+a,
+a * {
+}
+
+/*** Video ***/
+iframe { 
+  text-align: center;
+}
+.video-container{
+  display:flex; 
+  justify-content: center;
+}
+.video-container iframe{
+  width: 70%; 
+  max-width: 800px;
+  aspect-ratio: 16/9;
+}
+
+/*** header ***/
+.header-container { /* Example A: This styles elements with class="header" */
+  background: radial-gradient(circle,blue 0%, black 60%
+  );/* blue inside, black outside*/
+  padding-top: 10%; 
+  margin-top: 0; /* update if desired */ 
+  margin-bottom: 10%;
+  text-align: center;
+  display: flex; 
+  flex-direction: column;
+  z-index: 1000
+  ;}
+#header-img { /* Example A: This styles elements with class="header" */
+  margin: 0 auto; /* 0 top & bottom. auto R & L (divides the space between L & R */
+  padding: 2%;
+  text-align: center; 
+  width: 50%;
+}
+#header-img img { 
+  width: 100%; 
+  height: auto; 
+}
+.header-item:nth-of-type(1) { /* left button */ 
+  text-align: center;
+  margin: 10px 10px 0 10px;
+  font-family: "Times New Roman", monospace;
+}
+.header-item:nth-of-type(2)  { /* right button */ 
+  text-align: center;
+  margin: 10px 10px 0 10px;
+}
+.header-button { /* Example A: This styles elements with class="header" */
+  text-align: center;
+  font-size: medium; 
+  color: rgba(0, 0, 139, 0.588);
+  padding: 3% 0 10% 0;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  font-family: "Times New Roman", monospace;
+}
+
+/*** Button ***/
+button {
+    background-color: rgb(0, 0, 0);    /* button color */
+    opacity: 100;
+    color: white;               /* text color */
+    border: none;               /* hides the default border */
+    padding: 5px 12px;          /* space between button's text and edge */
+    border-radius: 5px;         /* curved edges instead of square */
+    cursor: pointer;            /* makes the cursor change when over button */
+    font-family: 'Times New Roman', monospace;
+    font-size: large;
+}
+button:hover {
+}
+
+/*** footer ***/
+.footer { 
+}
+
+/*** Navigation bar (navbar) ***/
+.navbar ul { /* Ensures the navbar is on top of other elements */
+    list-style: none;
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    left: 50%;
+    padding: 10px; 
+    border-radius: 8px;
+    transform: translateX(-50%);
+    width: 100%; 
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    background-color: #00000057;
+}
+.navbar ul li {
+    float: left;
+    margin: 10px;
+    list-style: none;
+}
+.navbar ul li a {
+  display: block; 
+  text-decoration: none;
+  color: white; 
+  text-align: center; 
+  padding: 0 50px 0 50px;
+}
+.navbar ul li a:hover {
+  background-color: blue;
+}
+
+/*** RSVP Section ***/
+.error{ 
+  border-style:solid; 
+  border-width: 2px; 
+  border-color: red;
+  background-color: pink;
+}
+.rsvp-container { 
+  text-align: center;
+  padding: 20px 0 0 0;
+  /*** making this a flexbox for para and participants ***/ 
+  display: flex; 
+  flex-direction: row;
+  gap: 20px; 
+  width: 100%; 
+  padding-bottom: 50px;
+}
+.form-container {
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+.rsvp-para{ 
+  text-align: center; 
+  padding: 20px 0 0 0;
+  /*** flex box ***/
+  width: 55%; 
+  padding-right: 10px;
+}
+.rsvp-participants{ 
+  /*** flex box ***/
+  width: 45%; 
+  padding-right: 10px;
+}
+#rsvp-button{ 
+  color: white;
+  background-color: blue;
+}
+
+/*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
+/*** Success Modal  ***
+  Purpose:
+  - Add style rules to your website's pop-up modal, which appears
+    when a user successfully submits the RSVP form
+***/
+.modal {
+  display: none;   /* hidden by default*/
+  position: fixed; /* cannot move around the screen */
+  z-index: 2;      /* appears above other elements */ 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* Add a semi-transparent background to shadow non-modal elements*/
+  background-color: rgba(0,0,0,0.4); /* 40% opacity black */
+  /* Flexbox settings for modal */
+  /* These won't apply until we update "display:" from "hidden" to "flex" in our JS */
+  /* used to center elements */
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+.modal-container {
+    /* Change modal size and spacing here */
+    padding: 50px;
+    width: 55%;
+    /* Customize modal style */
+    background-color: lightsteelblue;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    font-family: monospace;
+    /* Optional: Use flexbox to customize .modal-item layout */
+    display: flex;
+}
+.modal-item {
+    /* Style individual elements within the modal */
+}
+
+
+/* light mode style */
+#theme-button { 
+}
+html.light-mode{
+  background-color: white;
+  color: black;
+}
+body.light-mode{
+  background-color: white;
+  color: black;
+}
+.light-mode p{ 
+  color: black;
+}
+.light-mode .header-container{ 
+    background: radial-gradient(circle,blue 0%, white 60%
+  );
+}
+.light-mode button{ 
+  background-color: rgba(255, 255, 255, 0.454);
+  color: blue;
+}
+.light-mode h1 {
+    color: white;
+    background: linear-gradient(to right, white 0%, blue 10%, blue 90%, white 100%);
+}
+.light-mode h2 {
+    color: black; 
+    border: 2px solid black;   /* thickness, style, color */ 
+}
+.light-mode h3 {
+  background: linear-gradient(to right, white 0%, blue 10%, blue 90%, white 100%);
+  color: white;
+}
+.light-mode h4 {
+  color: blue;
+}
+.light-mode a:visited * {
+}
+
+/*** Custom Colors ***
+  - Use CSS variables to define custom colors 
+  - To reference a color variable in your css, use var(--variable-name) in place of a color value
+***/
+:root {
+    /* Light Mode */
+    --bg-color: black;
+    --text-color: #231942;
+    /* Dark Mode */
+    --bg-color-dark-mode: #000000;
+    --text-color-dark-mode: #fff;
+    /* Accent Colors */
+    --accent-color-light: #d2cff5;
+    --accent-color-medium: #684fb5;
+    --accent-color-dark: #482f95;
+    --accent-color-darkest: #231942;
+    --accent-color-green: #28eb76;
+    /* Error Colors */
+    --error-color: #f8bbd0;
+    --error-color-border: #e63946;
+    font-family: "Times New Roman", monospace;
+}

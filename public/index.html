@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- head
+    - Title used here shows up in the browser tab
+    - Link to the favicon (small image that appears in the browser tab)
+    - Link to the CSS file (used to style the webpage)
+    -->
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Aaliyah's Quinceanera</title> <!--shows up in browser tab-->  
+        <div class="header-container"> 
+            <div id ="header-img">
+                <img alt="Navy Blue Quinceañera. 15th Birthday Celebration" src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e/67ca9d86-ae5e-42ba-95df-8997547b5754.png"/> 
+            </div> 
+            <h1>Aaliyah's Quinceanera</h1>
+            <h3><i>Princess to Queen</i></h3>
+            <div class="header-button">
+                <div class="header-item">
+                    <button type="button" onclick="document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' })">
+                        RSVP!
+                    </button>
+                </div>
+                <!-- <div class="header-item">
+                    <button type="button">...</button>
+                </div> -->
+            </div>
+        </div> 
+        <link rel="icon" href="./img/aaliyah-crown.jpg">
+    </head>
+    
+    <body>    
+    <!-- navbar-->
+        <div class="navbar">
+            <ul>
+            <li><a href="#welcome">About</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#links">Information</a></li>
+            <li><button id="theme-button">Theme Mode</button></li>
+            </ul>
+        </div>
+
+        <!-- about
+        Purpose:
+        - Section for general info about the event
+        - Contains a video, description, and key points about the event
+        --> 
+        <section> 
+            <h2 id="welcome">Welcome</h2>
+            <p>You're invited to celebrate a special milestone - Aaliyah’s Quinceañera, a tradition that honors her growth, heritage, and the journey into young womanhood.</p>
+            <p>A royal transformation from princess to queen. Surrounded by family, friends, and community, we’ll mark this meaningful day with music, food, and celebration. </p> 
+            <p>Join us as we honor Aaliyah’s roots and embrace the future with love, pride, and joy.</p>
+            <h4><u>Aaliyah's Padrinos y Madrinos</u></h4>
+            <ul style="list-style: none; text-align: center; padding: 0;">
+                <li> <b>Jose Ramon Zamarron - </b><i>Venue</i></li>
+                <li> <b>Malicha Cuellar - </b><i>Food</i></li>
+                <li> <b>Patricia Shishido - </b><i>Decorations</i></li>
+            </ul>        
+        </section>
+
+        <h2 id="schedule">Event Schedule</h2>
+        <section> 
+            <h3>Dinner</h3>
+            <img class='center-img' alt="Image description" src="https://d1h2anuecgxlkn.cloudfront.net/networks/5/blog/t_320_320/eKIWiyRYjvKyrZuqvrGrpzM6hoseovFl26wFHz7j.webp"/>
+            <p>Enjoy delicious home cooked mexican foods and desserts!</p>
+        </section>
+        <section> 
+            <h3>Formal Presentation</h3>
+            <img class='center-img'alt="Diamond Crown. Quinceanera." height="60%" width="60%" src="./img/aaliyah-crown.jpg"/> 
+            <p>The Quinceanera will be recognized and introduced to the party guests.</p>
+        </section>
+        <section> 
+            <h3>Traditional Dances</h3>
+            <img class='center-img'width="225" height="315" src="./img/dance.png" alt="Quince dancing with her father." width="200">
+            <p>The Quinceañera will engage in dances with her Damas and Chambelanes.</p>
+            <p>The Quinceañera will also do El Baile con Papá.</p>
+        </section> 
+
+        <section> 
+            <div id="rsvp">
+                <h2>RSVP</h2>
+                <p id="rsvp-count">⭐ 3 people have RSVP'd to this event!</p>
+                <div class="rsvp-container">
+                    <div class="rsvp-para">
+                        <!-- info goes here -->
+                        We are excited to celebrate this unforgettable night with you.
+                        Please RSVP by <u>January 1st, 2025</u> to reserve your place at the celebration!
+                    </div>
+                    <div class="rsvp-participants">
+                        <p>🎟️ Melissa has RSVP'd.</p>
+                        <p>🎟️ Allie has RSVP'd.</p>
+                        <p>🎟️ Antonia has RSVP'd.</p>
+                    </div>
+                </div>
+                <div class="form-container">
+
+                    <form id="rsvp-form">
+                        <label for="name">Full Name</label><br> 
+                        <input type="text" id="name" placeholder="Your name" required><br>
+                        
+                        <label for="guests">Number of Guests</label><br> 
+                        <input type="number" id="guests" placeholder="1" value="1" min="1" required><br>
+                        
+                        <label for="message">Message</label><br> 
+                        <input type="text" id="message" placeholder="Any message (optimal)"><br>
+                        
+                        <button type = "submit"> Submit RSVP </button>
+                    </form>
+                    
+                    <button id="rsvp-button">Submit RSVP</button>
+                </div>      
+            </div>
+        </section>
+
+        <div id="success-modal" class="modal">
+            <div class="modal-container">
+                <div id="modal-item">
+                    <p>Modal Pop-up Placeholder</p>
+                </div>
+                <div id="modal-item">
+                    <img id='modal-image' src="./img/rsvp-crown.png" alt="RSVP Crown" width="200">
+                </div>
+            </div>
+        </div>
+
+        <!-- links --> 
+        <h2 id="links">Learn more</h2>
+        <!-- This <a> block is one link -->
+        <a class = "block">
+            <article>
+                <h4><u>What is a Quinceañera?</u></h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_0LXMJYP76M?si=0hdcGnxGKtb1f_VW" title="What is a Quinceañera?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </article>
+        </a>
+        <a class="block" href="https://www.villarussocatering.com/blog/quinceaneras-expect-wear">
+            <article>
+                <h4><u>Dress Code</u></h4>
+                <p>What to wear to a Quinceanera?</p>
+            </article>
+        </a>
+        <a class="block" href="https://qbydavinci.com/blog/quinceanera-primer-for-non-latino-friends/">
+            <article>
+                <h4><u>Quinceanera 101</u></h4>
+                <p>Non-Latino? No worries! All are welcome.</p>
+            </article>
+        </a>
+        <a class="block" href="https://www.arianavara.com/blog/navigating-quincea-era-etiquette-dos-and-don-ts-for-guests-and-the-honoree">
+            <article>
+                <h4><u>Do's & Dont's</u></h4>
+                <p>Curious about what to expect?</p>
+            </article>
+        </a>
+         <script src="script.js"></script>
+    </body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    form {
+      margin-bottom: 2rem;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+    }
+    .rsvp {
+      background: #f5f5f5;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>RSVPs</h1>
+
+  <form id="rsvpForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="number" id="guests" placeholder="Number of Guests" value="1" />
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <button type="submit">Submit RSVP</button>
+  </form>
+
+  <div id="rsvpList"></div>
+
+  <script>
+    const form = document.getElementById("rsvpForm");
+    const list = document.getElementById("rsvpList");
+
+    // 🟢 Fetch RSVPs and show them
+    async function loadRsvps() {
+      const res = await fetch("http://localhost:3000/api/rsvps");
+      const data = await res.json();
+      list.innerHTML = data
+        .map(r => `
+          <div class="rsvp">
+            <strong>${r.name}</strong> (${r.guests} guests)
+            <p>${r.message || ""}</p>
+          </div>
+        `)
+        .join("");
+    }
+
+    // 🟣 Handle form submit
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const rsvp = {
+        name: document.getElementById("name").value,
+        guests: parseInt(document.getElementById("guests").value),
+        message: document.getElementById("message").value
+      };
+      await fetch("http://localhost:3000/api/rsvps", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(rsvp)
+      });
+      form.reset();
+      loadRsvps();
+    });
+    
+
+    loadRsvps();
+  </script>
+</body>
+</html> -->
