@@ -6,8 +6,6 @@ import cors from "cors";
 import path from "path"; 
 import { fileURLToPath } from "url"; 
 
-
-
 // creates an equiv to __dirname like in CommonJS 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename); 
@@ -26,7 +24,6 @@ let db;
         filename: "../data.db", // file auto created
         driver: sqlite3.Database
     }); 
-
     // create rsvps table if not exist 
     await db.exec(`
         CREATE TABLE IF NOT EXISTS rsvps (
@@ -37,12 +34,10 @@ let db;
         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     `);
-    
     console.log("Database ready"); 
 })();  
 
-// create API routes 
-// get all RSVPs 
+// create API routes , get all RSVPs 
 app.get("/api/rsvps", async(req, res) => {
     try { 
         const rsvps = await db.all("SELECT * FROM rsvps ORDER BY timestamp DESC"); 
@@ -53,22 +48,23 @@ app.get("/api/rsvps", async(req, res) => {
     }
 });
 
-
 // add new rsvp 
 app.post("/api/rsvps", async (req, res)=>{ 
     try { 
         const { name, guests, message } = req.body; 
         if(!name){ 
-            return res.status(400).json({error: "Name is required"}); 
+            return res.status(400).json({ success: false, error: "Name is required" }); 
         }
-        await db.run(
+        const result = await db.run(
             "INSERT INTO rsvps (name, guests, message) VALUES (?, ?, ?)", 
             [name, guests || 1, message || ""]
         );
-        res.json({success: true}); 
+        // get inserted record
+        const entry = await db.get("SELECT * FROM rsvps WHERE id = ?", result.lastID);
+        res.json({success: true, entry}); 
     } catch (err) { 
         console.error("Error inserting RSVP:", err); 
-        res.status(500).json({error: err.message});
+        res.status(500).json({success: false, error: err.message});
     }
 });
 
@@ -88,7 +84,6 @@ app.get("/debug", async (req, res) => {
     res.status(500).json({ error: "Could not load RSVPs" });
   }
 });
-
 
 // start server 
 const PORT = 3000; 

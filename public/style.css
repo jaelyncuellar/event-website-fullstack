@@ -1,342 +1,539 @@
-/*** VSCodeEDU preview fix 
-  Purpose:
-  - Fix VSCodeEDU issue that causes a white border to show around
-    the preview window
-  When To Modify:
-  - If you change the background color of your webpage, you may need to update this rule too.
-***/
+:root {
+  /* color scheme */ 
+  --bg: #ffffff;
+  --text: #1b2d65;
+  --text-secondary: #606e88;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --accent: #3553a5;
+  --accent-soft: #e7ecff;
+  --border: #e3e7f4;
 
-/* 
-colors using - 
-main blue: rgb(0, 0, 191); 
-bright blue: blue; 
-*/
-html {
-    background-color: var(--bg-color);
-    scroll-padding-top: 100px;
-}
+  /* Font sizes */
+  --font-xs: 0.8rem;
+  --font-sm: 1rem;
+  --font-md: 1.2rem;
+  --font-lg: 1.6rem;
+  --font-xl: 2.2rem;
+  --font-xxl: 3rem;
 
-/*** body ***
-- adds style rules for the body of page
-- useful if want a rule to apply to EVERYTHING on pg
-    - can always override later in stylesheet
-***/
-body {
-    background-color: black; /* see bottom of file for color variables */
-    font-size: 16px; /* medium */ 
-    color: white;
-    font-family: "Times New Roman", monospace; 
-    margin: 50px; 
-}
+  /* spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
 
-/*** Text ***/
-h1 {
-    color: rgb(0, 0, 191);
-    background: linear-gradient(to right, black 0%, white 10%, white 90%, black 100%);
-    font-family: 'monospace';
-    text-align: center; 
-    font-size: 200%;
+  /* radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* shadow */
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-medium: 0 6px 18px rgba(0,0,0,0.12);
 }
-h2 {
-    font-size: 150%;
-    width: 50%;
-    font-style: italic;
-    text-align: center; 
-    color: white; 
-    margin: auto; 
-    border: 2px solid white;   /* thickness, style, color */
-    padding: 10px;             /* space between text and border */
-  }
-h3 {
-  background: linear-gradient(to right, black 0%, white 10%, white 90%, black 100%);
-  color: blue;
-    font-size: 24px;
-    text-align: center;
+body.dark-mode {
+  --bg: #0d1226;
+  --text: #e7ebff;
+  --text-secondary: #a7b1d9;
+  --card-bg: #151b31;
+  --accent: #5a79ff;
+  --accent-soft: #1e264a;
+  --border: #2e3b63;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-medium: 0 6px 18px rgba(0,0,0,0.55);
 }
-.center-img { 
-  display: block; 
+/* =====================================================
+GLOBAL RESET + BASE STYLES
+===================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  transition: background-color .35s ease, color .35s ease
+}
+h1, h2, h3, h4, h5 {
+  font-family: "Playfair Display", serif;
+  color: var(--text);
+  margin-top: 0;
+  letter-spacing: .5px;
+}
+p, li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+section {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 900px;
   margin: 0 auto;
 }
-section { 
-  margin-bottom: 100px; 
-}
-h4 {
-  padding-top: 50px; 
-    font-size: 18px;
-    color: white;
-    text-align: center;
-}
-/* li { 
-  list-style-type: square;
-} */
-p {
-    text-align: center; 
-    color: white;
-}
-a:link{ 
-    color: black; 
-}
-a:visited{ 
-    color: rgb(0, 0, 191);
-}
-a:hover{ 
-    color: blue; 
-}
-a:active{ 
-    color: white;
-    text-decoration: underline dotted red 2px; 
-}
-a,
-a * {
-}
 
-/*** Video ***/
-iframe { 
-  text-align: center;
-}
-.video-container{
-  display:flex; 
-  justify-content: center;
-}
-.video-container iframe{
-  width: 70%; 
-  max-width: 800px;
-  aspect-ratio: 16/9;
-}
-
-/*** header ***/
-.header-container { /* Example A: This styles elements with class="header" */
-  background: radial-gradient(circle,blue 0%, black 60%
-  );/* blue inside, black outside*/
-  padding-top: 10%; 
-  margin-top: 0; /* update if desired */ 
-  margin-bottom: 10%;
-  text-align: center;
-  display: flex; 
-  flex-direction: column;
-  z-index: 1000
-  ;}
-#header-img { /* Example A: This styles elements with class="header" */
-  margin: 0 auto; /* 0 top & bottom. auto R & L (divides the space between L & R */
-  padding: 2%;
-  text-align: center; 
-  width: 50%;
-}
-#header-img img { 
-  width: 100%; 
-  height: auto; 
-}
-.header-item:nth-of-type(1) { /* left button */ 
-  text-align: center;
-  margin: 10px 10px 0 10px;
-  font-family: "Times New Roman", monospace;
-}
-.header-item:nth-of-type(2)  { /* right button */ 
-  text-align: center;
-  margin: 10px 10px 0 10px;
-}
-.header-button { /* Example A: This styles elements with class="header" */
-  text-align: center;
-  font-size: medium; 
-  color: rgba(0, 0, 139, 0.588);
-  padding: 3% 0 10% 0;
-  margin: 0 auto;
-  cursor: pointer;
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-  font-family: "Times New Roman", monospace;
-}
-
-/*** Button ***/
-button {
-    background-color: rgb(0, 0, 0);    /* button color */
-    opacity: 100;
-    color: white;               /* text color */
-    border: none;               /* hides the default border */
-    padding: 5px 12px;          /* space between button's text and edge */
-    border-radius: 5px;         /* curved edges instead of square */
-    cursor: pointer;            /* makes the cursor change when over button */
-    font-family: 'Times New Roman', monospace;
-    font-size: large;
-}
-button:hover {
-}
-
-/*** footer ***/
-.footer { 
-}
-
-/*** Navigation bar (navbar) ***/
-.navbar ul { /* Ensures the navbar is on top of other elements */
-    list-style: none;
-    overflow: hidden;
-    position: fixed; 
-    top: 0; 
-    left: 50%;
-    padding: 10px; 
-    border-radius: 8px;
-    transform: translateX(-50%);
-    width: 100%; 
-    justify-content: center;
-    display: flex;
-    margin: auto;
-    background-color: #00000057;
-}
-.navbar ul li {
-    float: left;
-    margin: 10px;
-    list-style: none;
-}
-.navbar ul li a {
-  display: block; 
-  text-decoration: none;
-  color: white; 
-  text-align: center; 
-  padding: 0 50px 0 50px;
-}
-.navbar ul li a:hover {
-  background-color: blue;
-}
-
-/*** RSVP Section ***/
-.error{ 
-  border-style:solid; 
-  border-width: 2px; 
-  border-color: red;
-  background-color: pink;
-}
-.rsvp-container { 
-  text-align: center;
-  padding: 20px 0 0 0;
-  /*** making this a flexbox for para and participants ***/ 
-  display: flex; 
-  flex-direction: row;
-  gap: 20px; 
-  width: 100%; 
-  padding-bottom: 50px;
-}
-.form-container {
-  text-align: center;
-  padding: 0 0 20px 0;
-}
-.rsvp-para{ 
-  text-align: center; 
-  padding: 20px 0 0 0;
-  /*** flex box ***/
-  width: 55%; 
-  padding-right: 10px;
-}
-.rsvp-participants{ 
-  /*** flex box ***/
-  width: 45%; 
-  padding-right: 10px;
-}
-#rsvp-button{ 
-  color: white;
-  background-color: blue;
-}
-
-/*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
-/*** Success Modal  ***
-  Purpose:
-  - Add style rules to your website's pop-up modal, which appears
-    when a user successfully submits the RSVP form
-***/
-.modal {
-  display: none;   /* hidden by default*/
-  position: fixed; /* cannot move around the screen */
-  z-index: 2;      /* appears above other elements */ 
-  left: 0;
+/* =====================================================
+NAVIGATION
+===================================================== */
+/* =====================================================
+/* Elegant underline hover effect */
+.navbar {
+  position: sticky;            /* stays at top on scroll */
   top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-sm) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Nav Menu */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: var(--font-md);
+  padding-bottom: 4px; /* space for underline */
+  transition: color .25s ease;
+}
+/* underline hover effect */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: var(--accent-soft);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, border .25s ease;
+}
+.theme-button:hover {
+  background: var(--accent);
+  color: white;
+  border-color: transparent;
+}
+/* Responsive: collapse into centered menu on small screens */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+  .nav-links {
+    gap: var(--space-md);
+  }
+}
+
+/* =====================================================
+HERO SECTION
+===================================================== */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 520px;
+  background: radial-gradient(circle at center, var(--accent-soft) 0%, var(--bg) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.dark-mode .hero {
+  background: radial-gradient(circle at center, var(--accent-soft) 0%, var(--bg) 80%);
+}
+.hero-overlay { 
+  text-align: center;
+  max-width: 700px;
+  padding: var(--space-md); 
+  animation: fadeIn 1s ease-out; 
+}
+.hero-image {
+  width: 260px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  margin-bottom: var(--space-md);
+}
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  background: linear-gradient(90deg, #1b2d65, #5b7fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative; 
+}
+.hero-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #d4af37; /* gold */
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+.hero-subtitle {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+   background: linear-gradient(90deg, #1b2d65, #5b7fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-cta {
+  padding: 12px 28px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: var(--shadow-soft);
+}
+.hero-cta:hover {
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+/* hero Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* soft fade to the bottom */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+}
+
+/* =====================================================
+WELCOME SECTION
+===================================================== */
+.welcome-section { 
+    background-color: var(--accent-soft);
+    padding: var(--space-xs) var(--space-md);
+    text-align: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin: var(--space-lg);
+}
+.welcome-content { 
+  max-width: 800px; 
+  margin: 0 auto;
+}
+#welcome {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+.welcome-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+}
+.welcome-content strong { 
+  color: var(--text);
+}
+.padrinos-title {
+  font-size: 1.5rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--accent);
+  text-decoration: underline;
+}
+.padrinos-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  color:var(--text);
+}
+.padrinos-list li {
+  font-size: 1.1rem;
+}
+.padrinos-list li b { 
+  color: var(--accent);
+}
+.padrinos-list li:hover {
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+
+
+/* =====================================================
+CARD ELEMENTS
+===================================================== */
+.schedule-section {
+  background-color: var(--accent-soft);
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  margin: var(--space-lg) 0;
+}
+.schedule-section h2 {
+  color: var(--accent);
+  font-size: 2.5rem;
+  margin-bottom: var(--space-lg);
+}
+.schedule-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+.schedule-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  width: 280px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.schedule-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.25s ease;
+}
+.schedule-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.card-content {
+  padding: var(--space-md);
+}
+.card-content h3 {
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+.card-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-xs);
+}
+@media (max-width: 900px) {
+  .schedule-cards {
+    flex-direction: column;
+    align-items: center;
+}
+  .schedule-card {
+    width: 90%;
+  }
+}
+
+/* =====================================================
+RSVP styling
+===================================================== */
+
+.rsvp-section {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.rsvp-count {
+  color: var(--accent);
+  font-weight: bold;
+  margin-bottom: var(--space-md);
+}
+
+.rsvp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+.card {
+  background: var(--card-bg);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-4px);
+}
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.rsvp-form input {
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+}
+#rsvp-button {
+  padding: var(--space-sm);
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1rem;
+}
+#rsvp-button:hover {
+  background: var(--text);
+}
+
+/* =====================================================
+GRID HELPERS
+===================================================== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 750px) {
+.grid-2 {
+grid-template-columns: 1fr;
+}
+}
+
+/* =====================================================
+MODAL
+===================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  /* Add a semi-transparent background to shadow non-modal elements*/
-  background-color: rgba(0,0,0,0.4); /* 40% opacity black */
-  /* Flexbox settings for modal */
-  /* These won't apply until we update "display:" from "hidden" to "flex" in our JS */
-  /* used to center elements */
-  flex-direction: column; 
+  background: rgba(0,0,0,0.5);
+  display: none;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
-.modal-container {
-    /* Change modal size and spacing here */
-    padding: 50px;
-    width: 55%;
-    /* Customize modal style */
-    background-color: lightsteelblue;
-    color: black;
-    text-align: center;
-    font-size: 1rem;
-    font-family: monospace;
-    /* Optional: Use flexbox to customize .modal-item layout */
-    display: flex;
+.modal-content {
+  max-width:400px; 
+  text-align:center; 
 }
-.modal-item {
-    /* Style individual elements within the modal */
+.modal-image {
+width: 150px;
+margin-top: var(--space-sm);
+}
+.modal-close {
+margin-top: var(--space-sm);
+padding: var(--space-sm);
+border: none;
+background: var(--accent);
+color: white;
+border-radius: var(--radius-md);
+cursor: pointer;
+}
+
+/* =====================================================
+LINKS section
+===================================================== */
+.links-section {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.link-card {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.link-card h4 {
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 700px) {
+  .rsvp-grid, .links-grid {
+  grid-template-columns: 1fr;
+  }
 }
 
 
-/* light mode style */
-#theme-button { 
+/* =====================================================
+BUTTONS
+===================================================== */
+button {
+  background: var(--accent);
+  color: #fff;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: .25s;
 }
-html.light-mode{
-  background-color: white;
-  color: black;
-}
-body.light-mode{
-  background-color: white;
-  color: black;
-}
-.light-mode p{ 
-  color: black;
-}
-.light-mode .header-container{ 
-    background: radial-gradient(circle,blue 0%, white 60%
-  );
-}
-.light-mode button{ 
-  background-color: rgba(255, 255, 255, 0.454);
-  color: blue;
-}
-.light-mode h1 {
-    color: white;
-    background: linear-gradient(to right, white 0%, blue 10%, blue 90%, white 100%);
-}
-.light-mode h2 {
-    color: black; 
-    border: 2px solid black;   /* thickness, style, color */ 
-}
-.light-mode h3 {
-  background: linear-gradient(to right, white 0%, blue 10%, blue 90%, white 100%);
-  color: white;
-}
-.light-mode h4 {
-  color: blue;
-}
-.light-mode a:visited * {
+button:hover {
+  background: var(--accent-soft);
 }
 
-/*** Custom Colors ***
-  - Use CSS variables to define custom colors 
-  - To reference a color variable in your css, use var(--variable-name) in place of a color value
-***/
-:root {
-    /* Light Mode */
-    --bg-color: black;
-    --text-color: #231942;
-    /* Dark Mode */
-    --bg-color-dark-mode: #000000;
-    --text-color-dark-mode: #fff;
-    /* Accent Colors */
-    --accent-color-light: #d2cff5;
-    --accent-color-medium: #684fb5;
-    --accent-color-dark: #482f95;
-    --accent-color-darkest: #231942;
-    --accent-color-green: #28eb76;
-    /* Error Colors */
-    --error-color: #f8bbd0;
-    --error-color-border: #e63946;
-    font-family: "Times New Roman", monospace;
+
+/* =====================================================
+ANIMATIONS
+===================================================== */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px);}
+to { opacity: 1; transform: translateY(0);}
 }
