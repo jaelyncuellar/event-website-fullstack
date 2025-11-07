@@ -384,7 +384,6 @@ RSVP styling
   font-weight: bold;
   margin-bottom: var(--space-md);
 }
-
 .rsvp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -406,25 +405,49 @@ RSVP styling
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-soft);
 }
-.rsvp-form input {
+.rsvp-form .form-group { 
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.rsvp-form label {
+  font-weight: 600;
+  font-size: var(--font-sm);
+  color: var(--text);
+}
+.rsvp-form input, .rsvp-form textarea {
   padding: var(--space-sm);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--bg);
   color: var(--text);
+  font-size: var(--font-md);
+  transition: border .2s ease, box-shadow .2s ease;
 }
-#rsvp-button {
-  padding: var(--space-sm);
-  background: var(--accent);
+.submit-btn { 
+  background:var(--accent); 
   color: white;
-  border: none;
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-md);
+  transition: background .25s ease, transform .25s ease;
 }
-#rsvp-button:hover {
+.submit-btn:hover {
   background: var(--text);
+  transform: translateY(-2px);
+}
+/* Responsive */
+@media (max-width: 700px) {
+.rsvp-grid {
+grid-template-columns: 1fr;
+}
 }
 
 /* =====================================================

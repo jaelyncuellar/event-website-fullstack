@@ -38,14 +38,14 @@
             <ul class="nav-links">
                 <li><a href="#welcome">About</a></li>
                 <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#links">Information</a></li>
+                <li><a href="#links-section">Information</a></li>
             </ul>
             <button id="theme-button" class="theme-toggle">Theme Mode</button>
         </nav>
 
-        <section class="welcome-section"> 
+        <section class="welcome-section" id="welcome"> 
             <div class="welcome-content">
-                <h2 id="welcome">Welcome</h2>
+                <h2>Welcome</h2>
                 <p>You're invited to celebrate a special milestone - <strong>Aaliyah’s Quinceañera</strong>, a tradition that honors her growth, heritage, and the journey into young womanhood.</p>
                 <p>A royal transformation from princess to queen. Surrounded by family, friends, and community, we’ll mark this meaningful day with music, food, and celebration. </p> 
                 <p>Join us as we honor Aaliyah’s roots and embrace the future with love, pride, and joy.</p>
@@ -103,17 +103,20 @@
                     <p>🎟️ Antonia has RSVP'd.</p>
                 </div>
             </div>
-            <form id="rsvp-form">
-                <label for="name">Full Name</label><br> 
-                <input type="text" id="name" placeholder="Your name" required><br>
-                
-                <label for="guests">Number of Guests</label><br> 
-                <input type="number" id="guests" placeholder="1" value="1" min="1" required><br>
-                
-                <label for="message">Message</label><br> 
-                <input type="text" id="message" placeholder="Any message (optimal)"><br>
-
-                <button id="rsvp-button" type = "submit"> Submit RSVP </button>
+            <form id="rsvp-form" class="rsvp-form card">
+                <div class="form-group">
+                    <label for="name">Full Name</label><br> 
+                    <input type="text" id="name" placeholder="Enter your full name" required><br>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Guests</label><br> 
+                    <input type="number" id="guests" placeholder="1" value="1" min="1" required><br>
+                <div>
+                <div class="form-group">
+                    <label for="message">Message</label><br> 
+                    <textarea id="message" rows="3" placeholder="Any message you'd like to add..."></textarea> <br>
+                </div>
+                <button id="rsvp-button" type ="submit" class="submit-btn"> Submit RSVP</button>
             </form>
         </section>
 
