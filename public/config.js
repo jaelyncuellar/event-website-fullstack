@@ -56,10 +56,6 @@ export const EVENT_CONFIG = {
             width:"200"
         }
     },
-    /* Footer */
-    footerName: "Jaelyn Cuellar",
-    footerGitHub: "https://github.com/jaelyncuellar",
-
     /* Theme Colors (These override CSS variables on load) */
     theme: {
         accent: "#3553a5",
