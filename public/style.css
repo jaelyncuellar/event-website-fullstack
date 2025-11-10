@@ -6,8 +6,10 @@
   --card-bg: #ffffff;
   --nav-bg: #ffffff;
   --accent: #3553a5;
+  --accent-secondary: #5b7fff;
   --accent-soft: #e7ecff;
   --border: #e3e7f4;
+ 
 
   /* Font sizes */
   --font-xs: 0.8rem;
@@ -38,9 +40,13 @@ body.dark-mode {
   --text: #e7ebff;
   --text-secondary: #a7b1d9;
   --card-bg: #151b31;
-  --accent: #5a79ff;
+  --nav-bg: #151b31;
+  --accent: #bfcbff;
+  --accent-secondary: #5b7fff;
   --accent-soft: #1e264a;
   --border: #2e3b63;
+
+
   --shadow-soft: 0 4px 12px rgba(0,0,0,0.4);
   --shadow-medium: 0 6px 18px rgba(0,0,0,0.55);
 }
@@ -90,14 +96,14 @@ NAVIGATION
   box-shadow: var(--shadow-soft);
   padding: var(--space-sm) var(--space-lg);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 /* Nav Menu */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   margin: 0;
   padding: 0;
 }
@@ -158,7 +164,13 @@ NAVIGATION
     gap: var(--space-md);
   }
 }
-
+/* for scroll */
+.welcome-section, .links-section { 
+  scroll-margin-top: 80px;
+}
+.schedule-section .rsvp-section { 
+  scroll-margin-top: 800px;
+}
 /* =====================================================
 HERO SECTION
 ===================================================== */
@@ -173,7 +185,7 @@ HERO SECTION
   text-align: center;
 }
 .dark-mode .hero {
-  background: radial-gradient(circle at center, var(--accent-soft) 0%, var(--bg) 80%);
+  background: radial-gradient(circle at center, var(--accent-soft) 0%, var(--bg) 80%); 
 }
 .hero-overlay { 
   text-align: center;
@@ -192,7 +204,7 @@ HERO SECTION
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: var(--space-xs);
-  background: linear-gradient(90deg, #1b2d65, #5b7fff);
+  background: linear-gradient(90deg, var(--text), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative; 
@@ -211,13 +223,13 @@ HERO SECTION
   font-size: 1.3rem;
   margin-bottom: var(--space-md);
   color: var(--text-secondary);
-   background: linear-gradient(90deg, #1b2d65, #5b7fff);
+  background: linear-gradient(90deg, var(--text), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero-cta {
   padding: 12px 28px;
-  background: var(--accent);
+  background: var(--accent-secondary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -243,7 +255,7 @@ HERO SECTION
   left: 0;
   width: 100%;
   height: 120px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+  /* background: linear-gradient(to bottom, rgba(255,255,255,0), #fff); */
 }
 
 /* =====================================================
@@ -251,7 +263,7 @@ WELCOME SECTION
 ===================================================== */
 .welcome-section { 
     background-color: var(--accent-soft);
-    padding: var(--space-xs) var(--space-md);
+    padding: var(--space-lg) var(--space-md);
     text-align: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
@@ -262,7 +274,7 @@ WELCOME SECTION
   margin: 0 auto;
 }
 #welcome {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--accent);
     margin-bottom: 20px;
 }
@@ -379,6 +391,9 @@ RSVP styling
   max-width: 900px;
   margin: 0 auto;
 }
+.rsvp-section h2 {
+  font-size: 2em;
+}
 .rsvp-count {
   color: var(--accent);
   font-weight: bold;
@@ -405,7 +420,7 @@ RSVP styling
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  padding: var(--space-lg);
+  padding: var(--space-sm);
   border-radius: var(--radius-lg);
   background: var(--card-bg);
   box-shadow: var(--shadow-soft);
@@ -431,7 +446,7 @@ RSVP styling
 }
 .submit-btn { 
   background:var(--accent); 
-  color: white;
+  color: var(--bg);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-md);
   border: none;
@@ -468,36 +483,70 @@ grid-template-columns: 1fr;
 /* =====================================================
 MODAL
 ===================================================== */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  align-items: center;
+.modal-overlay{ 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,0.55); 
+  display: flex; 
+  align-items: center;  
   justify-content: center;
-  z-index: 1000;
+  z-index: 999; 
+  animation: fadeIn 0.25s ease-out; 
+}
+.hidden{ 
+  display: none; 
 }
 .modal-content {
-  max-width:400px; 
+  background: var(--accent);
+  padding: var(--space-md); 
+  width: min(90%, 420px);
+  border-radius: 16px;
   text-align:center; 
-}
-.modal-image {
-width: 150px;
-margin-top: var(--space-sm);
-}
-.modal-close {
-margin-top: var(--space-sm);
-padding: var(--space-sm);
-border: none;
-background: var(--accent);
-color: white;
-border-radius: var(--radius-md);
-cursor: pointer;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  animation: scaleIn 0.25s ease-out;
 }
 
+.modal-message { 
+  white-space: pre-line;
+  font-size: 1.25rem; 
+  line-height:1.6; 
+  margin-bottom: 20px;
+  color: var(--bg); 
+  font-weight: 500;
+}
+.modal-image {
+  width: 150px;
+  display: block;
+  margin: 10px auto 25px; /* top , left/right, bottom */
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.modal-button {
+  padding: var(--space-sm);
+  border: none;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease; 
+}
+.modal-button:hover { 
+  background: var(--accent-secondary); 
+}
+.modal-button:active { 
+  transform: scale(0.97);
+}
+/* animations */
+@keyframes fadeIn { 
+  from { opacity: 0; }
+  to { opacity: 1; }
+} 
+@keyframes scaleIn { 
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+} 
 /* =====================================================
 LINKS section
 ===================================================== */
@@ -505,6 +554,10 @@ LINKS section
   padding: var(--space-xl) var(--space-md);
   max-width: 900px;
   margin: 0 auto;
+  
+}
+.links-section h2 {
+  font-size: 2em;
 }
 
 .links-grid {

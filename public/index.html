@@ -22,10 +22,10 @@
             
                 <button 
                     class="hero-cta"
+                    id="rsvp-btn" 
                     type="button" 
                     onclick="document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' })"
-                >
-                RSVP!
+                > RSVP!
                 </button>
             </div>
         </section>
@@ -37,7 +37,7 @@
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="#welcome">About</a></li>
-                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#schedule-section">Schedule</a></li>
                 <li><a href="#links-section">Information</a></li>
             </ul>
             <button id="theme-button" class="theme-toggle">Theme Mode</button>
@@ -59,7 +59,7 @@
             </div>     
         </section>
 
-        <section>           
+        <section class="schedule-section" id="schedule-section">           
             <h2 id="schedule">Event Schedule</h2>
             <div class="schedule-cards"> 
                  <div class = "schedule-card">
@@ -120,16 +120,19 @@
             </form>
         </section>
 
-        <div id="success-modal" class="modal">
+        <!-- class="modal" -->
+        <div id="modal-overlay" class="modal-overlay hidden" >
             <div class="modal-content card">
-                <p>Your RSVP has been submitted! 🎉</p>
+                <p class="modal-message">
+                    Your RSVP has been submitted! 🎉
+                </p>
                 <img class="modal-image" src="./img/rsvp-crown.png" alt="RSVP Crown" width="200">
-                <button id="close-modal" class="modal-close">Close</button>    
+                <button id="close-modal" class="modal-button">Close</button>    
             </div>
         </div>
 
         <!-- links --> 
-        <section class="links-section"> 
+        <section class="links-section"id="links-section"> 
             <h2>Learn more</h2>
             <div class="links-grid">
                 <a class="link-card card">

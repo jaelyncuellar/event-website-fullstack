@@ -3,8 +3,8 @@
  ***********************/
 const themeButton = document.getElementById("theme-button");
 themeButton.addEventListener("click", () => {
-  document.documentElement.classList.toggle("light-mode");
-  document.body.classList.toggle("light-mode");
+  document.documentElement.classList.toggle("dark-mode");
+  document.body.classList.toggle("dark-mode");
 });
 
 /***********************
@@ -14,13 +14,20 @@ const form = document.getElementById("rsvp-form");
 const rsvpList = document.querySelector(".rsvp-attending.card"); //class
 const countElement = document.getElementById("rsvp-count");
 
-const modal = document.getElementById("success-modal");
+const modal = document.getElementById("modal-overlay");
 const modalContent = document.querySelector(".modal-content"); // class
 const modalImage = document.querySelector(".modal-image");
+const modalMessage = document.querySelector(".modal-message");
 const modalClose = document.getElementById("close-modal");
 
 let rotateFactor = 0; 
 let count= 0; 
+
+
+// hero section rsvp button -> scrolls to the rsvp section 
+document.getElementById("rsvp-btn").addEventListener("click", () => { 
+  document.querySelector(".rsvp-section").scrollIntoView({behavior:"smooth"});
+});
 
 /***********************
  * animation - modal image 
@@ -35,9 +42,12 @@ function animateImage() {
  ***********************/
 function toggleModal(name) { 
   if (!modal || !modalContent) return; 
+  // show overlay 
   modal.style.display="flex"; 
-  modalContent.querySelector("p").textContent =
-    `Thanks for RSVPing, ${name}! We're looking forward to seeing you!`;
+  // update message 
+  modalMessage.textContent = 
+    `Thanks for RSVPing, ${name}!
+    We are looking forward to seeing you!`;
   const intervalId = setInterval(animateImage, 500); 
   setTimeout(() => { 
       modal.style.display = "none"; 
