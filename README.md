@@ -273,4 +273,4 @@ Fully customization through config.js.
 Created by Jaelyn Cuellar. 
 
 ## 12. License 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/jaelyncuellar/event-website-fullstack/blob/main/LICENSE%20) file for details.
