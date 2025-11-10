@@ -9,81 +9,47 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <title>Aaliyah's Quinceanera</title> <!--shows up in browser tab-->  
-
+        <link rel="icon" href="./img/aaliyah-crown.jpg">
+    </head>
+    
+    <body>    
+        <!-- HERO  -->
         <section class="hero">
             <div class="hero-overlay">
                 <img
-                    src = "https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e/67ca9d86-ae5e-42ba-95df-8997547b5754.png"
-                    alt = "Quinceañera Princess"
+                    src = ""
+                    alt = ""
                     class = "hero-image"
                 >
-                <h1 class="hero-title">Aaliyah's Quinceañera</h1>
-                <h3 class="hero-subtitle">Princess to Queen</h3>
+                <h1 class="hero-title"></h1>
+                <h3 class="hero-subtitle"></h3>
             
                 <button 
                     class="hero-cta"
                     id="rsvp-btn" 
                     type="button" 
-                    onclick="document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' })"
-                > RSVP!
-                </button>
+                ></button>
             </div>
         </section>
 
-        <link rel="icon" href="./img/aaliyah-crown.jpg">
-    </head>
-    
-    <body>    
         <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#welcome">About</a></li>
-                <li><a href="#schedule-section">Schedule</a></li>
-                <li><a href="#links-section">Information</a></li>
-            </ul>
-            <button id="theme-button" class="theme-toggle">Theme Mode</button>
+            <ul class="nav-links"></ul>
+            <button id="theme-button" class="theme-toggle"></button>
         </nav>
 
         <section class="welcome-section" id="welcome"> 
             <div class="welcome-content">
-                <h2>Welcome</h2>
-                <p>You're invited to celebrate a special milestone - <strong>Aaliyah’s Quinceañera</strong>, a tradition that honors her growth, heritage, and the journey into young womanhood.</p>
-                <p>A royal transformation from princess to queen. Surrounded by family, friends, and community, we’ll mark this meaningful day with music, food, and celebration. </p> 
-                <p>Join us as we honor Aaliyah’s roots and embrace the future with love, pride, and joy.</p>
-                
-                <h4 class="padrinos-title">Aaliyah's Padrinos y Madrinos</h4>
-                <ul class="padrinos-list">
-                    <li> <b>Jeremy Zecker -</b> <i>Venue</i></li>
-                    <li> <b>Martha Canvas -</b> <i>Food</i></li>
-                    <li> <b>Prine Seet -</b> <i>Decorations</i></li>
-                </ul>   
+                <h2 class="welcome-title"></h2>
+                <div class="welcome-paragraphs"></div>
+
+                <h4 class="padrinos-title"></h4>
+                <ul class="padrinos-list"></ul>   
             </div>     
         </section>
 
         <section class="schedule-section" id="schedule-section">           
             <h2 id="schedule">Event Schedule</h2>
             <div class="schedule-cards"> 
-                 <div class = "schedule-card">
-                    <img src="https://d1h2anuecgxlkn.cloudfront.net/networks/5/blog/t_320_320/eKIWiyRYjvKyrZuqvrGrpzM6hoseovFl26wFHz7j.webp" alt="Dinner" />
-                    <div class="card-content">
-                        <h3>Dinner</h3>
-                        <p>Enjoy delicious home-cooked Mexican foods and desserts!</p>
-                    </div>
-                </div>
-                <div class="schedule-card">
-                    <img src="./img/aaliyah-crown.jpg" alt="Diamond Crown. Quinceañera." />
-                    <div class="card-content">
-                        <h3>Formal Presentation</h3>
-                        <p>The Quinceañera will be recognized and introduced to the party guests.</p>
-                    </div>
-                </div>
-                <div class="schedule-card">
-                    <img src="./img/dance.png" alt="Quince dancing with her father." />
-                    <div class="card-content">
-                        <h3>Traditional Dances</h3>
-                        <p>The Quinceañera will engage in dances with her Damas and Chambelanes.</p>
-                        <p>The Quinceañera will also do <em>El Baile con Papá</em>.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -93,14 +59,8 @@
             
             <div class="rsvp-grid">
                 <div class="rsvp-info card">
-                    <p>We are excited to celebrate this unforgettable night with you.
-                        Please RSVP by <u>January 1st, 2025</u> to reserve your place at the celebration!
-                    </p> 
                 </div>
                 <div class="rsvp-attending card">
-                    <p>🎟️ Melissa has RSVP'd.</p>
-                    <p>🎟️ Allie has RSVP'd.</p>
-                    <p>🎟️ Antonia has RSVP'd.</p>
                 </div>
             </div>
             <form id="rsvp-form" class="rsvp-form card">
@@ -124,36 +84,16 @@
         <div id="modal-overlay" class="modal-overlay hidden" >
             <div class="modal-content card">
                 <p class="modal-message">
-                    Your RSVP has been submitted! 🎉
                 </p>
-                <img class="modal-image" src="./img/rsvp-crown.png" alt="RSVP Crown" width="200">
+                <img class="modal-image" src="" alt="" width="200">
                 <button id="close-modal" class="modal-button">Close</button>    
             </div>
         </div>
 
         <!-- links --> 
         <section class="links-section"id="links-section"> 
-            <h2>Learn more</h2>
-            <div class="links-grid">
-                <a class="link-card card">
-                    <h4>What is a Quinceañera?</h4>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/_0LXMJYP76M?si=0hdcGnxGKtb1f_VW" title="What is a Quinceañera?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </a>
-                <a class="link-card card" href="https://www.villarussocatering.com/blog/quinceaneras-expect-wear">
-                    <h4>Dress Code</h4>
-                    <p>What to wear to a Quinceañera?</p>
-                </a>
-                <a class="link-card card" href="https://qbydavinci.com/blog/quinceanera-primer-for-non-latino-friends/">
-                    <h4>Quinceañera 101</h4>
-                    <p>Non-Latino? No worries! All are welcome.</p>
-                </a>
-                <a class="link-card card" href="https://www.arianavara.com/blog/navigating-quincea-era-etiquette-dos-and-don-ts-for-guests-and-the-honoree">
-                    <h4>Do's & Don'ts</h4>
-                    <p>Curious about what to expect?</p>
-                </a>
-            </div>
+            <h2 class="links-title"></h2>
+            <div class="links-grid"></div>
         </section>
        
         <footer class="site-footer">
@@ -161,6 +101,7 @@
                 © 2025 • Made by
                 <a href="https://github.com/jaelyncuellar" target="_blank">Jaelyn Cuellar</a></p>
         </footer>
-    <script src="script.js"></script>
+    <script type="module" src="config.js"></script>
+    <script type="module" src="script.js"></script>
     </body>
 </html>
